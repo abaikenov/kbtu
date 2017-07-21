@@ -1,0 +1,3 @@
+1. SELECT e.* FROM employee e LEFT JOIN employee l ON l.id = e.chief_id WHERE e.salary > l.salary;
+
+2.
