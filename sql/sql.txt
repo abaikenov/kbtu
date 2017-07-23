@@ -1,3 +1,41 @@
-1. SELECT e.* FROM employee e LEFT JOIN employee l ON l.id = e.chief_id WHERE e.salary > l.salary; 
+1. SELECT e.*
+   FROM employee e
+     LEFT JOIN employee l ON l.id = e.chief_id
+   WHERE e.salary > l.salary;
 
-2.
+2. SELECT e.*
+   FROM employee e
+     JOIN (
+            SELECT max(e.salary) AS salary
+            FROM employee e
+            GROUP BY e.department_id
+          ) l ON l.salary = e.salary;
+
+3. SELECT e.department_id
+   FROM (
+          SELECT
+            e.department_id,
+            count(e.id) AS cnt
+          FROM employee e
+          GROUP BY e.department_id
+        ) e
+   WHERE e.cnt <= 3;
+
+4. SELECT *
+   FROM employee e
+     LEFT JOIN employee l ON l.id = e.chief_id
+   WHERE e.chief_id IS NULL OR l.department_id != e.department_id
+
+
+5. WITH dep_sal AS (
+       SELECT
+         e.department_id,
+         sum(e.salary) AS sum
+       FROM employee e
+       GROUP BY e.department_id
+   ) SELECT ds.department_id
+     FROM dep_sal ds
+       JOIN (
+              SELECT max(sum) AS sum
+              FROM dep_sal
+            ) l ON l.sum = ds.sum;

@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: #272a38;
+    color: #bebfc2;
+    font-size: 13px;
+}
+
+#wrapper {
+    background: #1f212d;
+    width: 700px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+ul {
+    background: #20222e;
+    text-align: center;
+    padding: 7px 0;
+}
+
+ul li {
+    list-style: none;
+    display: inline-block;
+    border-left: 2px solid;
+    padding: 0 25px 0 7px;
+    font-size: 11px;
+}
+
+ul li:nth-child(1) {
+    border-left-color: #afafb3;
+    color: #afafb3;
+}
+
+ul li:nth-child(2) {
+    border-left-color: #ff0000;
+    color: #ff0000;
+}
+
+ul li:nth-child(3) {
+    border-left-color: #ffcc00;
+    color: #ffcc00;
+}
+
+table {
+    width: 100%;
+}
+
+table thead th {
+    font-size: 10px;
+    padding: 7px 0;
+    color: #4c5066;
+}
+
+table thead th:nth-child(1) {
+    position: absolute;
+}
+
+table thead th:nth-child(2) {
+    padding-left: 60px;
+}
+
+table tbody td {
+    border-collapse: collapse;
+    border: 1px solid transparent;
+    padding: 10px;
+}
+
+table tbody td.group {
+    width: 1px;
+    padding: 0;
+    border-radius: 10px 0 0 10px;
+}
+
+table tbody td.group.group-0 {
+    background: #11646a;
+}
+
+table tbody td.group.group-1 {
+    background: #214d84;
+}
+
+.rotate {
+    display: inline-block;
+    filter: progid: DXImageTransform.Microsoft.BasicImage(rotation=3);
+    -webkit-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    transform: rotate(270deg);
+}
+
+table tbody td.category {
+    background: #2a2c3c;
+    border-right: 2px solid #1f212d;
+}
+
+table tbody td.subcategory {
+    background: #242634;
+    border-left: 2px solid;
+}
+
+table tbody td.subcategory.empty {
+    border-left-color: #b2b3b6;
+}
+
+table tbody td.subcategory.deficit {
+    border-left-color: #ff0000;
+}
+
+table tbody td.subcategory.excess {
+    border-left-color: #ffcc00;
+}
+
+table tbody td.value {
+    background: #222431;
+}
+
+.indicator {
+    display: flex;
+}
+
+.indicator .diff {
+    align-items: center;
+    flex: 1 1 70px;
+}
+
+.indicator .diff.diff-left{
+    text-align: right;
+    margin-right: 10px;
+}
+
+.indicator .diff.diff-right{
+    text-align: left;
+    margin-left: 10px;
+}
+
+.indicator .block {
+    display: flex;
+    align-items: center;
+    flex: 1 1 120px;
+    position: relative;
+}
+
+.indicator .block span {
+    width: 3px;
+    height: 6px;
+    background: #606580;
+    margin: 1px;
+}
+
+.indicator .block span.divider {
+    width: 1px;
+    height: 12px;
+    background: #606580;
+    margin: 1px;
+}
+
+.indicator .block span.empty {
+    background: #2e3141;
+}
+
+.indicator .block span.deficit {
+    background: #ff0000;
+}
+
+.indicator .block span.excess {
+    background: #ffcc00;
+}
+
+.indicator .block span.empty-value {
+    background: none;
+    width: 100%;
+    height: 22px;
+    position: absolute;
+    text-align: center;
+}

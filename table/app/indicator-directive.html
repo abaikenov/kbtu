@@ -1,0 +1,18 @@
+<!-- если надо вывести индикатор -->
+<div class="indicator" ng-if="undefined === categoryName">
+    <div class="diff diff-left">
+        <span ng-if="diff < 0 && pieces > 0">{{diff}}</span>
+    </div>
+    <div class="block">
+        <span ng-repeat="n in [1, 2, 3, 4, 5, 6, 7, 8, 10]" ng-class="{deficit: diff < 0 && pieces < n && pieces > 0, empty: pieces == 0}"></span>
+        <span class="divider" ng-if="pieces !== 0" ng-class="{deficit: diff < 0, excess: diff > 0}"></span>
+        <span class="empty-value" ng-if="pieces === 0">{{value}}</span>
+        <span ng-repeat="n in [1, 2, 3, 4, 5, 6, 7, 8, 10]" ng-class="{excess: diff > 0 && pieces >= n, empty: pieces == 0}"></span>
+    </div>
+    <div class="diff diff-right">
+        <span ng-if="diff > 0 && pieces > 0">{{diff}}</span>
+    </div>
+</div>
+
+<!-- если надо вывести категорию -->
+<span ng-if="undefined !== categoryName">{{categoryName}}</span>

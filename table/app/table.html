@@ -1,0 +1,35 @@
+<div>
+    <ul>
+        <li>Отсутствие ресурса</li>
+        <li>Дефицит</li>
+        <li>Избыток</li>
+    </ul>
+</div>
+<table>
+    <thead>
+    <tr>
+        <th>Группа узлов учета НП</th>
+        <th>Группа НП</th>
+        <th>НП</th>
+        <th>Норматив остатка</th>
+    </tr>
+    </thead>
+
+    <tbody ng-repeat="(groupIndex, group) in $ctrl.groups">
+    <tr ng-repeat-start="(categoryIndex, category) in group.categories" ng-if="false"></tr>
+    <tr ng-repeat="(subCategoryIndex, subCategory) in category.categories">
+        <td class="group group-{{groupIndex}}" rowspan="{{$ctrl.getTotalItems(group)}}" ng-if="categoryIndex === 0 && subCategoryIndex === 0">
+            <span class="rotate">{{group.name}}</span>
+        </td>
+        <td class="category" rowspan="{{category.categories.length}}" ng-if="subCategoryIndex === 0">{{category.name}}</td>
+        <td class="subcategory" indicator
+            normal="{{subCategory.normal}}"
+            value="{{subCategory.value}}"
+            category-name="{{subCategory.name}}"></td>
+        <td class="value">
+            <indicator normal="{{subCategory.normal}}" value="{{subCategory.value}}"></indicator>
+        </td>
+    </tr>
+    <tr ng-repeat-end ng-if="false"></tr>
+    </tbody>
+</table>
